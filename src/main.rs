@@ -19,6 +19,8 @@ fn main() {
     match (year, day) {
         // 2021
         (2021, 1) => year_2021::day01::run(inputs::read_numbers(year, day)),
+        (2021, 2) => year_2021::day02::run(inputs::read(year, day)),
+        (2021, 3) => year_2021::day03::run(inputs::read(year, day)),
 
 
         (_, _) => panic!("Not implemented :("),
