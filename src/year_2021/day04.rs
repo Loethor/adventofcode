@@ -24,10 +24,8 @@ fn solve_part1(input: &Vec<String>) -> i32 {
         if line.len() == 0 {list_of_boards.push(Board { columns: Vec::new(), rows: Vec::new() })}
     }
 
-
     let mut current_board = 0;
     for line in &input[1..]{
-        
         match line.len().cmp(&0) {
             Ordering::Equal => continue,
             Ordering::Greater => {
@@ -45,7 +43,6 @@ fn solve_part1(input: &Vec<String>) -> i32 {
             Ordering::Less => panic!("Lines cannot be negative."),   
         }
     }
-
     
     for board in &mut list_of_boards{
         board.populate_columns();
@@ -54,11 +51,7 @@ fn solve_part1(input: &Vec<String>) -> i32 {
     let mut board_points = 0;
     let mut winner_number = 0;
     'number_loop: for number in numbers_drawn{
-        // println!("{number}");
         for board in &mut list_of_boards{
-            // board.print_state();
-            // print!("\n");
-
             if board.check_if_number_in_board(number){
                 println!("{number}");
                 board.print_board();
@@ -67,16 +60,7 @@ fn solve_part1(input: &Vec<String>) -> i32 {
                 break 'number_loop;
             }
         }
-    }
-    
-    // // only for sanity checks
-    // for board in &list_of_boards{
-    //     board.print_board();
-    // }
-    // for board in &list_of_boards{
-    //     board.print_by_columns()
-    // }
-    
+    }    
     board_points * winner_number
 }
 
@@ -86,17 +70,16 @@ struct Board{
 }
 
 impl Board{
-
     fn check_if_number_in_board(&mut self, number: i32) -> bool{
         for row in &mut self.rows{
             for element in &mut row.elements{
-                if number == element.value{element.drawn = true;}
+                if number == element.value{element.was_drawn();}
             }
         }
 
         for column in &mut self.columns{
             for element in &mut column.elements{
-                if number == element.value{element.drawn = true;}
+                if number == element.value{element.was_drawn();}
             }
         }
         self.check_for_bingo()
@@ -107,7 +90,7 @@ impl Board{
         let mut sum = 0;
         for row in &self.rows{
             for element in &row.elements{
-                if !element.drawn{
+                if !element.is_drawn(){
                     sum += element.value;
                 }
             }
@@ -117,15 +100,11 @@ impl Board{
 
     fn check_for_bingo(&mut self) -> bool{
         for row in &mut self.rows{
-            if row.check_for_bingo(){
-                return true;
-            }
+            if row.check_for_bingo(){return true;}
         }
         for column in &mut self.columns{
             
-            if column.check_for_bingo(){
-                return true;
-            }
+            if column.check_for_bingo(){return true;}
         }
         return false;
     }
@@ -142,6 +121,7 @@ impl Board{
         }
     }
 
+    // debug function
     fn print_board(&self){
         for row in &self.rows{
             for element in &row.elements{
@@ -151,6 +131,8 @@ impl Board{
         }
     }
 
+    // debug function
+    #[allow(dead_code)]
     fn print_by_columns(&self){
         for column in &self.columns{
             for element in &column.elements{
@@ -160,6 +142,8 @@ impl Board{
         }
     }
 
+    // debug function
+    #[allow(dead_code)]
     fn print_state(&self){
         for row in &self.rows{
             for element in &row.elements{
@@ -185,22 +169,14 @@ impl Row {
     fn check_for_bingo(&mut self) -> bool{
         let mut count = 0;
         for element in &self.elements{
-            if element.drawn{
-                count += 1;
-            }
+            if element.is_drawn(){count += 1;}
         }
-        if count == 5
-        {
-            true
-        }else {
-            false
-        }
+        if count == 5 {true} else {false}
     }
 }
 
 struct Column {
     elements:Vec<Number>,
-    bingo:bool,
 }
 
 impl Column {
@@ -213,16 +189,9 @@ impl Column {
     fn check_for_bingo(&mut self) -> bool{
         let mut count = 0;
         for element in &self.elements{
-            if element.drawn{
-                count += 1;
-            }
+            if element.is_drawn(){count += 1;}
         }
-        if count == 5
-        {
-            true
-        }else {
-            false
-        }
+        if count == 5 {true} else {false}
     }
 }
 
