@@ -11,7 +11,7 @@ pub fn run(input: Vec<String>) {
 }
 
 fn solve_part1(input: &Vec<String>) -> i32 {
-    
+
     let header = &input[0];
     let mut numbers_drawn:Vec<i32> = Vec::new();
     for number in header.split(','){
@@ -33,7 +33,7 @@ fn solve_part1(input: &Vec<String>) -> i32 {
         match line.len().cmp(&0) {
             Ordering::Equal => continue,
             Ordering::Greater => {
-                let mut new_row = Row{elements: Vec::new(), bingo: false};
+                let mut new_row = Row{elements: Vec::new()};
                 for character in line.split(" "){
                     if character.is_empty(){continue;}
                     let new_number = Number{value: character.trim().parse().expect("Expected a number."), drawn: false};
@@ -88,7 +88,7 @@ fn solve_part2(input: &Vec<String>) -> i32 {
         match line.len().cmp(&0) {
             Ordering::Equal => continue,
             Ordering::Greater => {
-                let mut new_row = Row{elements: Vec::new(), bingo: false};
+                let mut new_row = Row{elements: Vec::new()};
                 for character in line.split(" "){
                     if character.is_empty(){continue;}
                     let new_number = Number{value: character.trim().parse().expect("Expected a number."), drawn: false};
@@ -224,7 +224,6 @@ impl Board{
 
 struct Row {
     elements:Vec<Number>,
-    bingo:bool,
 }
 
 impl Row {
