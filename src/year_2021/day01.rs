@@ -1,3 +1,26 @@
+/* Day 01
+
+A) This exercise consist in reading number and counting the times the number has increased.
+B) Obtaining the sums of a three-number sliding window and counting how many times the sum increases.
+
+                    Processed           Processed
+Example input       Part A              Part B
+199                 N/A                 607 (199+200+208)
+200                 Increased           618
+208                 Increased           618      
+210                 Increased           617
+200                 Decreased           647
+207                 Increased           716
+240                 Increased           769
+269                 Increased           792
+260                 Decreased           
+263                 Increased           
+
+Example output
+                    7                   5
+
+*/
+
 pub fn run(input: Vec<i64>) {
     let part1 = solve_part1(&input);
     println!("part 1: {}", part1);
@@ -10,43 +33,19 @@ pub fn run(input: Vec<i64>) {
 
 fn solve_part1(input: &Vec<i64>) -> i64 {
     let mut count: i64 = 0;
-    
-    let mut previous_element: i64 = input[0];
-    println!("N/A - no previous measurement");
-
     for i in 1..input.len() {
-        if input[i] > previous_element {
-            println!("increased");
-            count += 1;
-        } else {
-            println!("decreased");
-        }
-        previous_element = input[i]
+        if input[i] > input[i-1] {count += 1;}
     }
-    return count;
+    count
 }
 
 fn solve_part2(input: &Vec<i64>) -> i64 {
     let mut count: i64 = 0;
-    
-    let mut first_element = input[0];
-    let mut second_element = input[1];
-    let mut third_element = input[2];
-
-    let mut previous_sum = first_element + second_element + third_element;
-
-    for i in 3..input.len() {
-        first_element = second_element;
-        second_element = third_element;
-        third_element = input[i];
-        let sum = first_element + second_element + third_element;
-        if sum > previous_sum{
-            println!("increased");
-            count += 1;
-        } else {
-            println!("decreased");
-        }
-        previous_sum = sum
+    let mut previous_sum = input[0] + input[1] + input[2];
+    for element in input[1..].windows(3){
+        let sum = element[0]+element[1]+element[2];
+        if sum > previous_sum{count+=1}
+        previous_sum = sum;
     }
-    return count;
+    count
 }
