@@ -1,6 +1,6 @@
 /* Day 02
 
-Summary of the puzzles:
+Summary of the puzzle:
 
 A)  Read the input and obtain two numbers, depth and px. One is the summation of every number with the tag 
     "forward". The other  number is obtain from the numbers with the tags "up" and "down". "Down" increases it,
