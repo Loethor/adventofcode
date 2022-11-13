@@ -1,6 +1,8 @@
 /* Day 01
 
-A) This exercise consist in reading number and counting the times the number has increased.
+Summary of the puzzles:
+
+A) Reading a list of numbers number and counting how many times each number is greater then the previous.
 B) Obtaining the sums of a three-number sliding window and counting how many times the sum increases.
 
                     Processed           Processed
