@@ -53,7 +53,7 @@ pub fn run(input: Vec<String>) {
     println!("part 1: {}", part1);
     assert_eq!(part1, 1025636);
 
-    let part2 = solve_part2(&input);
+    let part2 = solve_part2b(&input);
     println!("part 2: {}", part2);
     assert_eq!(part2, 793873);
 }
@@ -73,49 +73,45 @@ fn solve_part1(input: &Vec<String>) -> i32 {
             }
         }
     }
-    let mut gamma_rate_binary:Vec<i32> = Vec::new();
-    let mut epsilon_rate_binary:Vec<i32> = Vec::new();
+
+    let mut gamma_rate = String::new();
+    let mut epsilon_rate =  String::new();
+
     for i in 0..number_of_elements_per_row{
         match number_of_ones_per_column[i] > number_of_zeros_per_column[i] {
             true => 
             {
-                gamma_rate_binary.push(1);
-                epsilon_rate_binary.push(0);
+                gamma_rate  += &String::from("1");
+                epsilon_rate  += &String::from("0");
             },
             false =>
             {
-                gamma_rate_binary.push(0);
-                epsilon_rate_binary.push(1);
+                gamma_rate  += &String::from("0");
+                epsilon_rate  += &String::from("1");
             }  
         }
     }
-    _binary_to_dec(gamma_rate_binary) * _binary_to_dec(epsilon_rate_binary)
+    i32::from_str_radix(&gamma_rate, 2).unwrap() *  i32::from_str_radix(&epsilon_rate, 2).unwrap()
 }
 
 fn solve_part2(input: &Vec<String>) -> i32{
     
     let copy = input.clone();
-    let final_number_pos = _recursive_search(copy, 0, true);
+    let gamma_rate = _recursive_search(copy, 0, true);
     
     let copy = input.clone();
-    let final_number_neg = _recursive_search(copy, 0, false);
+    let epsilon_rate = _recursive_search(copy, 0, false);
 
-    let number_neg = _vec_string_to_vec_i32(final_number_neg);  
-    let number_pos = _vec_string_to_vec_i32(final_number_pos);    
+    let mut gamma_rate_binary = String::new();
+    let mut epsilon_rate_binary = String::new();
 
-    return _binary_to_dec(number_pos) * _binary_to_dec(number_neg);
-}
+    for i in 0..gamma_rate.len(){
 
-fn _vec_string_to_vec_i32(final_number_pos: Vec<String>) -> Vec<i32> {
-    let mut number_pos:Vec<i32> = Vec::new();
-    for character in final_number_pos[0].chars(){
-        match character{
-            '1' => number_pos.push(1),
-            '0' => number_pos.push(0),
-             _ => panic!("Wrong input"),
-        }
+        gamma_rate_binary += &gamma_rate[i];
+        epsilon_rate_binary += &epsilon_rate[i];
     }
-    number_pos
+
+    return  i32::from_str_radix(&gamma_rate_binary, 2).unwrap() * i32::from_str_radix(&epsilon_rate_binary, 2).unwrap() ;
 }
 
 fn _recursive_search(input:Vec<String>, j:usize, flag:bool) -> Vec<String>{
@@ -152,11 +148,3 @@ fn _recursive_search(input:Vec<String>, j:usize, flag:bool) -> Vec<String>{
     }
 }
 
-fn _binary_to_dec(binary_vec:Vec<i32>) -> i32 {
-    let mut result = 0;
-    for i in 0..binary_vec.len(){
-        let operator = i32::pow(2, ((binary_vec.len() - 1) - i ) as u32);
-        result += binary_vec[i] * operator;
-    }
-    result
-}
