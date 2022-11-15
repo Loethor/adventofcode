@@ -53,7 +53,7 @@ pub fn run(input: Vec<String>) {
     println!("part 1: {}", part1);
     assert_eq!(part1, 1025636);
 
-    let part2 = solve_part2b(&input);
+    let part2 = solve_part2(&input);
     println!("part 2: {}", part2);
     assert_eq!(part2, 793873);
 }
