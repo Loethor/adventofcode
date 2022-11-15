@@ -24,6 +24,7 @@ fn main() {
         (2021, 4) => year_2021::day04::run(inputs::read(year, day)),
         (2021, 5) => year_2021::day05::run(inputs::read(year, day)),
         (2021, 6) => year_2021::day06::run(inputs::read(year, day)),
+        (2021, 7) => year_2021::day07::run(inputs::read(year, day)),
 
 
         (_, _) => panic!("Not implemented :("),
