@@ -16,25 +16,25 @@ Example output
 */
 
 // // For time measurement
-// use std::time::{Duration, Instant};
+use std::time::{Duration, Instant};
 
 pub fn run(input: Vec<String>) {
 
-    // let start = Instant::now();
+    let start = Instant::now();
     let part1 = solve_part1(&input);
     println!("part 1: {}", part1);
-    // let duration = start.elapsed();
+    let duration = start.elapsed();
     assert_eq!(part1, 354564);
 
 
-    // let start = Instant::now();
+    let start = Instant::now();
     let part2 = solve_part2(&input);
-    // let duration2 = start.elapsed();
+    let duration2 = start.elapsed();
     println!("part 2: {}", part2);
     assert_eq!(part2, 1609058859115);
 
-    // println!("Time elapsed in solve_part1() is: {:?}", duration);
-    // println!("Time elapsed in solve_part2() is: {:?}", duration2);
+    println!("Time elapsed in solve_part1() is: {:?}", duration);
+    println!("Time elapsed in solve_part2() is: {:?}", duration2);
 }
 
 fn solve_part1(input: &Vec<String>) -> i64 {
