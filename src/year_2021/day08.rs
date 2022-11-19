@@ -57,6 +57,7 @@ fn solve_part2(input: &Vec<String>) -> i32 {
             out_numb.push(big_number);
         }
 
+        //TODO .to_digit(10)
         count += 1000*out_numb[0] + 100*out_numb[1] + 10*out_numb[2] + out_numb[3];
 
     }
@@ -79,10 +80,7 @@ fn process_input_segments(tr: &mut Segments, array_of_input_segments:Vec<String>
 
         }
     }
-    // println!("{}", one);
-    // println!("{}", seven);
-    // println!("{}", four);
-    // println!("{:?}", five_segments_numbers);
+
 
     // with 1 obtain a0 from 7
     for letter in seven.chars(){
@@ -104,8 +102,6 @@ fn process_input_segments(tr: &mut Segments, array_of_input_segments:Vec<String>
     let index = five_segments_numbers.iter().position(|x| *x == three).unwrap();
     five_segments_numbers.remove(index);
 
-    // println!("{}", three);
-
 
     // with 4 obtain 2 from the 5 digits
     let mut two = String::new();
@@ -121,7 +117,6 @@ fn process_input_segments(tr: &mut Segments, array_of_input_segments:Vec<String>
             }
         }
     }
-    // println!("{}", two);
     let index = five_segments_numbers.iter().position(|x| *x == two).unwrap();
     five_segments_numbers.remove(index);
 
@@ -134,11 +129,7 @@ fn process_input_segments(tr: &mut Segments, array_of_input_segments:Vec<String>
             tr.f0 = letter;
         }
     }
-    // println!("{}",one);
-    // println!("{}",four);
-    // println!("{}",five);
-    // println!("{}",three);
-    // println!("{}",two);
+
 
     // obtain c0 with 2 and 1
     for letter in one.chars(){
