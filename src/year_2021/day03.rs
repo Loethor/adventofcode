@@ -11,40 +11,20 @@ B)  In this case, to obtain lsr|ogr we check the first bit and keep the numbers 
     This continues until one number is alone in the list. That is your lsr|ogr. Obtain their decimal
     number and multiply them both.
 
-                    Processed           Processed
-Example input       Part A              Part B
-00100               00100               00100               
-11110               11110               11110               
-10110               10110               10110               
-10111               10111               10111               
-10101               10101               10101               
-01111               01111               01111               
-00111               00111               00111               
-11100               11100               11100               
-10000               10000               10000               
-11001               11001               11001               
-00010               00010               00010               
-01010               01010               01010               
-
-                    1                   Too complex to represent :)
-                     0
-                      1
-                       1
-                        0
-
-                    0
-                     1
-                      0
-                       0 
-                        1
-
-                    in dec
-                    22
-                        9
-
-
-Example output
-                    198 = 22 * 9        230 = 23 * 10
+                  
+Example input
+00100
+11110
+10110
+10111
+10101               
+01111               
+00111               
+11100               
+10000               
+11001               
+00010               
+01010               
 
 */
 

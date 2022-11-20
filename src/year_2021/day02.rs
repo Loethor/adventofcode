@@ -8,17 +8,14 @@ A)  Read the input and obtain two numbers, depth and px. One is the summation of
 B)  There is a new number: aim. "up" decreases aim while "down" increases it. "forward" x increases  
     px by x and your depth by aim * x. The answer is depth * px
 
-                    Processed           Processed
-Example input       Part A              Part B
-forward 5           px = 5              px = 5; depth = 5 * aim = 5 * 0
-down 5              depth = 5           aim = 5
-forward 8           px = 13 = 5 + 8     px = 13; depth = 8 * 5 = 40
-up 3                depth = 2 = 5 - 3   aim = 2 = 5 - 3
-down 8              depth = 10 = 2 + 8  aim = 10 = 2 + 8
-forward 2           px = 15 = 13 + 2    px = 15; depth = 40 + 2 * 10 = 60
-
-Example output
-                    150 = 15 * 10       900 = 60 * 10    
+                   
+Example input
+forward 5
+down 5
+forward 8
+up 3
+down 8
+forward 2
 
 */
 

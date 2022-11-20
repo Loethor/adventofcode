@@ -5,21 +5,17 @@ Summary of the puzzle:
 A) Reading a list of numbers number and counting how many times each number is greater then the previous.
 B) Obtaining the sums of a three-number sliding window and counting how many times the sum increases.
 
-                    Processed           Processed
-Example input       Part A              Part B
-199                 N/A                 607 (199+200+208)
-200                 Increased           618
-208                 Increased           618      
-210                 Increased           617
-200                 Decreased           647
-207                 Increased           716
-240                 Increased           769
-269                 Increased           792
-260                 Decreased           
-263                 Increased           
-
-Example output
-                    7                   5
+Example input
+199
+200
+208
+210
+200
+207
+240
+269
+260
+263 
 
 */
 
