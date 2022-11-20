@@ -1,3 +1,25 @@
+/* Day 05
+
+Summary of the puzzle:
+
+A)  
+B)  
+
+                    
+Example input
+0,9 -> 5,9
+8,0 -> 0,8
+9,4 -> 3,4
+2,2 -> 2,1
+7,0 -> 7,4
+6,4 -> 2,0
+0,9 -> 2,9
+3,4 -> 1,4
+0,0 -> 8,8
+5,5 -> 8,2          
+
+*/
+
 pub fn run(input: Vec<String>) {
     let part1 = solve_part1(&input);
     println!("part 1: {}", part1);
@@ -9,9 +31,9 @@ pub fn run(input: Vec<String>) {
 }
 
 
-fn solve_part1(input: &Vec<String>) -> i32 {
-    let mut width = 0;
-    let mut height = 0;
+fn solve_part1(input: &Vec<String>) -> usize {
+    let mut cols:usize = 0;
+    let mut rows:usize = 0;
 
     let mut list_of_numbers: Vec<Numbers> = Vec::new();
     for line in input{
@@ -21,10 +43,10 @@ fn solve_part1(input: &Vec<String>) -> i32 {
                 number_to_add.push(number.parse().expect("Expected a number."))
             }
         }
-        increase_maximum(number_to_add[0], &mut width);
-        increase_maximum(number_to_add[1], &mut height);
-        increase_maximum(number_to_add[2], &mut width);
-        increase_maximum(number_to_add[3], &mut height);
+        if number_to_add[0] > number_to_add[2] {increase_maximum(number_to_add[0], &mut cols)}
+        else {increase_maximum(number_to_add[2], &mut cols)};
+        if number_to_add[1] > number_to_add[3] {increase_maximum(number_to_add[1], &mut rows)}
+        else {increase_maximum(number_to_add[3], &mut rows)};
 
 
         list_of_numbers.push(Numbers{
@@ -34,11 +56,11 @@ fn solve_part1(input: &Vec<String>) -> i32 {
             y2: number_to_add[3],
         });
     }
-    let cap = ((height+1)*(width+1)) as usize;
-    let mut matrix:Matrix = Matrix::new(height as usize +1, width as usize +1, Vec::with_capacity(cap));
+    rows +=1;
+    cols +=1;
+    let mut matrix:Matrix = Matrix::new(rows, cols, Vec::with_capacity(rows*cols));
     
     for n in list_of_numbers{
-        // println!("x: {}, y: {} | x: {}, y: {}",numbers.x1,numbers)
         if n.x1 == n.x2{
             let i = n.x1 as usize;
             if n.y1 > n.y2{
@@ -64,19 +86,11 @@ fn solve_part1(input: &Vec<String>) -> i32 {
             }
         }
     }
-
-    // //sanity
-    // matrix.print_matrix();
-
-    let mut count = 0;
-    for element in matrix.data{
-        if element > 1 {count+=1;}
-    }
-    count
+    matrix.data.iter().filter(|&n| *n > 1).count()
 }
 
 
-fn solve_part2(input: &Vec<String>) -> i32 {
+fn solve_part2(input: &Vec<String>) -> usize {
     let mut width = 0;
     let mut height = 0;
 
@@ -89,11 +103,11 @@ fn solve_part2(input: &Vec<String>) -> i32 {
                 number_to_add.push(number.parse().expect("Expected a number."))
             }
         }
-        increase_maximum(number_to_add[0], &mut width);
-        increase_maximum(number_to_add[1], &mut height);
-        increase_maximum(number_to_add[2], &mut width);
-        increase_maximum(number_to_add[3], &mut height);
 
+        if number_to_add[0] > number_to_add[2] {increase_maximum(number_to_add[0], &mut width)}
+        else {increase_maximum(number_to_add[2], &mut width)};
+        if number_to_add[1] > number_to_add[3] {increase_maximum(number_to_add[1], &mut height)}
+        else {increase_maximum(number_to_add[3], &mut height)};
 
         list_of_numbers.push(Numbers{
             x1: number_to_add[0], 
@@ -160,17 +174,12 @@ fn solve_part2(input: &Vec<String>) -> i32 {
 
     // //sanity
     // matrix.print_matrix();
-
-    let mut count = 0;
-    for element in matrix.data{
-        if element > 1 {count+=1;}
-    }
-    count
+    matrix.data.iter().filter(|&n| *n > 1).count()
 }
 
-fn increase_maximum(candidate: i32, max: &mut i32) {
-    if candidate > *max{
-        *max = candidate
+fn increase_maximum(candidate: i32, previous_max: &mut usize) {
+    if candidate as usize > *previous_max{
+        *previous_max = candidate as usize
     }
 }
 
