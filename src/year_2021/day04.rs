@@ -49,7 +49,7 @@ fn solve_part1(input: &Vec<String>) -> i32 {
     initialize_boards(input, &mut list_of_boards);
     populate_boards_rows_from_input(input, &mut list_of_boards);
     populate_boards_columns(&mut list_of_boards);
-    draw_numbers_and_check_for_winner(selected_numbers, list_of_boards)
+    check_for_winner_board(selected_numbers, list_of_boards)
 }
 
 fn solve_part2(input: &Vec<String>) -> i32 {
@@ -59,15 +59,8 @@ fn solve_part2(input: &Vec<String>) -> i32 {
     initialize_boards(input, &mut list_of_boards);
     populate_boards_rows_from_input(input, &mut list_of_boards);
     populate_boards_columns(&mut list_of_boards);
-    draw_numbers_and_check_for_last_winner_board(list_of_boards, selected_numbers)
-
+    check_for_last_winner_board(list_of_boards, selected_numbers)
 }
-
-
-
-
-
-
 
 struct Board{
     rows:Vec<Row>,
@@ -217,12 +210,6 @@ fn initialize_boards(input: &Vec<String>, list_of_boards: &mut Vec<Board>) {
     }
 }
 
-fn populate_boards_columns(list_of_boards: &mut Vec<Board>) {
-    for board in list_of_boards{
-        board.obtains_board_columns_from_rows();
-    }
-}
-
 fn populate_boards_rows_from_input(input: &Vec<String>, list_of_boards: &mut Vec<Board>) {
     let mut current_board = 0;
     for line in &input[1..]{
@@ -246,7 +233,13 @@ fn add_rows_to_board(line: &String, list_of_boards: &mut Vec<Board>, current_boa
     if list_of_boards[*current_board].rows.len() == 5 {*current_board +=1}
 }
 
-fn draw_numbers_and_check_for_winner(selected_numbers: Vec<i32>, mut list_of_boards: Vec<Board>) -> i32 {
+fn populate_boards_columns(list_of_boards: &mut Vec<Board>) {
+    for board in list_of_boards{
+        board.obtains_board_columns_from_rows();
+    }
+}
+
+fn check_for_winner_board(selected_numbers: Vec<i32>, mut list_of_boards: Vec<Board>) -> i32 {
     let mut board_points = 0;
     let mut winner_number = 0;
     'number_loop: for number in selected_numbers{
@@ -261,7 +254,7 @@ fn draw_numbers_and_check_for_winner(selected_numbers: Vec<i32>, mut list_of_boa
     board_points * winner_number
 }
 
-fn draw_numbers_and_check_for_last_winner_board(mut list_of_boards: Vec<Board>, selected_numbers: Vec<i32>) -> i32 {
+fn check_for_last_winner_board(mut list_of_boards: Vec<Board>, selected_numbers: Vec<i32>) -> i32 {
     let number_of_boards = list_of_boards.len();
     let mut board_points = 0;
     let mut winner_number = 0;
