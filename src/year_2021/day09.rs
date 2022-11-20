@@ -56,7 +56,6 @@ fn solve_part2(input: &Vec<String>) -> i64 {
     board.find_ceiling();
     board.find_floor();
     board.find_basins();
-    // board.print_board_states();
 
     board.basins.sort();
 
