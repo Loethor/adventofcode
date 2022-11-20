@@ -265,10 +265,6 @@ fn check_for_last_winner_board(mut list_of_boards: Vec<Board>, selected_numbers:
             if board.check_if_number_produces_bingo(number){
                 if !list_of_winners.contains(&board.board_id){list_of_winners.push(board.board_id)}
                 if list_of_winners.len() == number_of_boards{
-                    println!("{number}");
-                    board.print_board();
-                    println!("");
-                    board.print_state();
                     winner_number = number;
                     board_points = board.calculate_sum_of_not_drawn_numbers();
                     break 'number_loop;
