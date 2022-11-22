@@ -1,5 +1,3 @@
-use std::borrow::Borrow;
-
 pub fn run(input: Vec<String>) {
 
     let part1 = solve_part1(&input);
@@ -41,7 +39,8 @@ fn solve_part1(input: &Vec<String>) -> u32 {
 
 fn solve_part2(input: &Vec<String>) -> i64 {
     
-    let mut count = 0;
+    let count;
+
     let m = input.len();
     let n = input[0].len();
     let mut squares :Vec<Square> = Vec::new();

@@ -66,11 +66,7 @@ fn solve_part1(input: &Vec<String>) -> u32 {
 }
 
 fn solve_part2(input: &Vec<String>) -> u64 {
-    let mut scores:Vec<u64> = Vec::new();
-
-    let mut uncorrupted_input = input.clone();
-
-    
+    let mut scores:Vec<u64> = Vec::new();    
     'a:for line in input{
         let mut open_chunk:Vec<char> = Vec::new();
         for character in line.chars(){

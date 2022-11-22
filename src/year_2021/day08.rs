@@ -91,10 +91,10 @@ fn process_input_segments(tr: &mut Segments, array_of_input_segments:Vec<String>
     
     // with 1 obtain 3 from the 5 digits
     let mut three = String::new();
-    'outer: for five_digit_number in &mut five_segments_numbers{
+    'outer1: for five_digit_number in &mut five_segments_numbers{
         for letter in one.chars(){
             if !five_digit_number.contains(letter){
-                continue 'outer;
+                continue 'outer1;
             }
         }
         three = five_digit_number.to_string();
@@ -105,7 +105,7 @@ fn process_input_segments(tr: &mut Segments, array_of_input_segments:Vec<String>
 
     // with 4 obtain 2 from the 5 digits
     let mut two = String::new();
-    'outer: for five_digit_number in &mut five_segments_numbers{
+    'outer2: for five_digit_number in &mut five_segments_numbers{
         let mut count = 0;
         for letter in four.chars(){
             if !five_digit_number.contains(letter){
@@ -113,7 +113,7 @@ fn process_input_segments(tr: &mut Segments, array_of_input_segments:Vec<String>
             }
             if count == 2{
                 two = five_digit_number.to_string();
-                break 'outer;
+                break 'outer2;
             }
         }
     }
@@ -165,14 +165,6 @@ fn process_input_segments(tr: &mut Segments, array_of_input_segments:Vec<String>
             tr.g0 = letter;
         } 
     }
-
-
-
-    // println!("HOLAA {}", tr.translate('b'));
-    
-
-
-
 }
 
 
@@ -193,6 +185,7 @@ impl Segments {
         Self { a0:'t',b0:'t',c0:'t',d0:'t',e0:'t',f0:'t',g0:'t' }
     }
 
+    #[allow(dead_code)]
     fn translate(&self, c_i:char) -> char{
 
         if c_i == self.a0{
