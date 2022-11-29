@@ -1,6 +1,5 @@
 
 use std::collections::HashMap;
-use std::fs;
 use std::time::Instant;
 
 pub fn run(input: Vec<String>) {
