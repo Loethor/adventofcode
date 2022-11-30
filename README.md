@@ -43,7 +43,7 @@ My solutions to the [Advent of Code](https://adventofcode.com/) 2021 edition.
 | **6**   | **7**   | **8**   | **9**  | **10** |
 | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day06.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day07.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day08.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day09.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day10.rs) |
 | **11**  | **12**  | **13**  | **14** | **15** |
-| [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day11.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day12.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day11.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day13.rs) |        |        |
+| [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day11.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day12.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day13.rs) | [:star2:] |        |        |
 | **16**  | **17**  | **18**  | **19** | **20** |
 |         |         |         |        |        |
 | **21**  | **22**  | **23**  | **24** | **25** |
