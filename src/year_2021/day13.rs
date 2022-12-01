@@ -159,7 +159,6 @@ impl Matrix {
         x_mirror_matrix.mirror_in_x();
         x_mirror_matrix = copied_matrix + x_mirror_matrix;
         let new_cols = self.cols - (fold + 1);
-    
         x_mirror_matrix = x_mirror_matrix.reduce_matrix(self.rows, new_cols);
         x_mirror_matrix.clip_matrix_to_one();
         x_mirror_matrix
@@ -266,12 +265,12 @@ mod tests {
 
     #[test]
     fn test_fold_y(){
-        let mut t_matrix = Matrix{rows:5,cols:5, data:vec![1,0,1,0,0,
+        let t_matrix = Matrix{rows:5,cols:5, data:vec![1,0,1,0,0,
                                                                      0,0,0,0,1,
                                                                      0,0,0,0,0,
                                                                      0,0,0,0,0,
                                                                      1,1,1,1,1,]};
-        let mut e_matrix = Matrix{rows:2,cols:5, data:vec![1,1,1,1,1,
+        let e_matrix = Matrix{rows:2,cols:5, data:vec![1,1,1,1,1,
                                                                      0,0,0,0,1,]};
         let fold = 2;
         let r_matrix = t_matrix.fold_y(fold);
@@ -282,12 +281,12 @@ mod tests {
 
     #[test]
     fn test_fold_x(){
-        let mut t_matrix = Matrix{rows:5,cols:5, data:vec![1,0,1,0,0,
+        let t_matrix = Matrix{rows:5,cols:5, data:vec![1,0,1,0,0,
                                                                      0,0,0,0,1,
                                                                      0,0,0,0,0,
                                                                      0,0,0,0,0,
                                                                      1,1,1,1,1,]};
-        let mut e_matrix = Matrix{rows:5,cols:2, data:vec![1,0,
+        let e_matrix = Matrix{rows:5,cols:2, data:vec![1,0,
                                                                      1,0,
                                                                      0,0,
                                                                      0,0,

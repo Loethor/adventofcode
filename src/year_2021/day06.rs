@@ -16,7 +16,7 @@ Example output
 */
 
 // // For time measurement
-use std::time::{Duration, Instant};
+use std::time::{Instant};
 
 pub fn run(input: Vec<String>) {
 
