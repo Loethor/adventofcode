@@ -2,6 +2,7 @@ use std::env;
 
 mod common;
 mod year_2021;
+mod year_2022;
 
 use common::inputs;
 
@@ -32,6 +33,11 @@ fn main() {
         (2021, 12) => year_2021::day12::run(inputs::read(year, day)),
         (2021, 13) => year_2021::day13::run(inputs::read(year, day)),
         (2021, 14) => year_2021::day14::run(inputs::read(year, day)),
+
+        //2022
+        (2022,  1) => year_2022::day01::run(inputs::read(year, day)),
+        // (2022,  2) => year_2022::day02::run(inputs::read(year, day)),
+
 
 
         (_, _) => panic!("Not implemented :("),
