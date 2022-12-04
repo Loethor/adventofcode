@@ -26,7 +26,7 @@ fn solve_part1(input: &Vec<String>) -> i32 {
     let mut points = 0;
     for line in input.iter(){
         let (their_hand, my_hand) = line.split_once(' ').unwrap();
-        let (my_hand, their_hand) = (letter_to_hand[their_hand], letter_to_hand[my_hand]);
+        let (their_hand, my_hand ) = (letter_to_hand[their_hand], letter_to_hand[my_hand]);
         points += calculate_points(my_hand, their_hand);
     }
     points
@@ -52,15 +52,15 @@ fn solve_part2(input: &Vec<String>) -> i32 {
         let (their_hand, game_result) = line.split_once(' ').unwrap();
         let (their_hand, my_result) = (letter_to_hand[their_hand], letter_to_game_result[game_result]);
         match my_result {
-            Win => points += calculate_points(their_hand, their_hand.beats().beats()),
+            Win => points += calculate_points(their_hand.beats().beats(), their_hand),
             Draw => points += calculate_points(their_hand, their_hand),
-            Lose => points += calculate_points(their_hand, their_hand.beats()),
+            Lose => points += calculate_points(their_hand.beats(), their_hand),
         }
     }
     points
 }
 
-pub fn calculate_points(their_hand:Hand, my_hand:Hand) -> i32 {
+pub fn calculate_points(my_hand:Hand, their_hand:Hand, ) -> i32 {
     return my_hand.hands_to_points() + game(my_hand, their_hand).game_result_to_points();
 }
 
@@ -89,8 +89,6 @@ impl Hand {
         }
     }
 }
-
-
 pub trait Beats{
     fn beats(&self) -> Self;
 }
