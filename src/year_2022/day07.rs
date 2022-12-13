@@ -163,6 +163,7 @@ impl Directory {
         self.subdirectories.push(subdirectory);
     }
 
+    #[allow(dead_code)]
     fn print_directory(&self){
         println!("Name: {}", self.name);
         for file in self.files.clone(){
@@ -185,7 +186,7 @@ mod tests {
         let mut root = Directory::new("root".to_string());
         let mut home = Directory::new("home".to_string());
         let mut user = Directory::new("user".to_string());
-        let mut downloads = Directory::new("downloads".to_string());
+        let downloads = Directory::new("downloads".to_string());
 
         user.subdirectories.push(downloads);
         home.subdirectories.push(user);

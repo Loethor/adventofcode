@@ -15,9 +15,9 @@ pub fn run(input: Vec<String>) {
 fn solve_part1(input: &Vec<String>) -> u32 {
 
     let mut columns_of_boxes:HashMap<i32,Vec<char>> = HashMap::new();
-    let mut how_many:Vec<i32> = Vec::new();
-    let mut from:Vec<i32> = Vec::new();
-    let mut to:Vec<i32> = Vec::new();
+    // let how_many:Vec<i32> = Vec::new();
+    // let from:Vec<i32> = Vec::new();
+    // let to:Vec<i32> = Vec::new();
     let mut instructions: Vec<Vec<i32>> = Vec::new();
     for line in input.iter(){
         if line.contains("["){
@@ -63,7 +63,7 @@ fn solve_part1(input: &Vec<String>) -> u32 {
 
     for instruction in instructions{
 
-        for i in 0..instruction[0]{
+        for _ in 0..instruction[0]{
             if let Some(item) = columns_of_boxes.get_mut(&instruction[1]).unwrap().pop(){
                 columns_of_boxes.get_mut(&instruction[2]).unwrap().push(item);
             }
@@ -71,7 +71,7 @@ fn solve_part1(input: &Vec<String>) -> u32 {
     }
 
 
-    let solution = String::from("");
+    // let solution = String::from("");
 
     for i in 1..=columns_of_boxes.len() as i32{
         println!("{:?}", columns_of_boxes.get_mut(&i).unwrap().last())
@@ -89,9 +89,6 @@ fn solve_part1(input: &Vec<String>) -> u32 {
 fn solve_part2(input: &Vec<String>) -> u32 {
 
     let mut columns_of_boxes:HashMap<i32,Vec<char>> = HashMap::new();
-    let mut how_many:Vec<i32> = Vec::new();
-    let mut from:Vec<i32> = Vec::new();
-    let mut to:Vec<i32> = Vec::new();
     let mut instructions: Vec<Vec<i32>> = Vec::new();
     for line in input.iter(){
         if line.contains("["){
@@ -136,7 +133,7 @@ fn solve_part2(input: &Vec<String>) -> u32 {
 
     for instruction in instructions{
         let mut boxes:Vec<char> = vec![];
-        for i in 0..instruction[0]{
+        for _ in 0..instruction[0]{
 
             if let Some(item) = columns_of_boxes.get_mut(&instruction[1]).unwrap().pop(){
                 boxes.push(item);
@@ -145,7 +142,7 @@ fn solve_part2(input: &Vec<String>) -> u32 {
         boxes.reverse();
         columns_of_boxes.get_mut(&instruction[2]).unwrap().append(&mut boxes);
     }
-    let solution = String::from("");
+    // let solution = String::from("");
     for i in 1..=columns_of_boxes.len() as i32{
         println!("{:?}", columns_of_boxes.get_mut(&i).unwrap().last())
     }
