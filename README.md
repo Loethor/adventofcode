@@ -1,6 +1,6 @@
 # Advent Of Code (Rust)
 
-My solutions to the [Advent of Code](https://adventofcode.com/) 2021 edition.
+My solutions to the [Advent of Code](https://adventofcode.com/) written in Rust as learning challenge.
 
 ```
       __,_,_,___)          _______
@@ -44,6 +44,21 @@ My solutions to the [Advent of Code](https://adventofcode.com/) 2021 edition.
 | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day06.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day07.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day08.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day09.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day10.rs) |
 | **11**  | **12**  | **13**  | **14** | **15** |
 | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day11.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day12.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2021/day13.rs) |  |        |        |
+| **16**  | **17**  | **18**  | **19** | **20** |
+|         |         |         |        |        |
+| **21**  | **22**  | **23**  | **24** | **25** |
+|         |         |         |        |        |
+
+
+### 2022
+
+| **1**   | **2**   | **3**   | **4**  | **5**  |
+|---------|---------|---------|--------|--------|
+| [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day01.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day02.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day03.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day04.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day05.rs) |
+| **6**   | **7**   | **8**   | **9**  | **10** |
+|         |         |         |        |        |
+| **11**  | **12**  | **13**  | **14** | **15** |
+|         |         |         |        |        |
 | **16**  | **17**  | **18**  | **19** | **20** |
 |         |         |         |        |        |
 | **21**  | **22**  | **23**  | **24** | **25** |

@@ -126,9 +126,6 @@ fn solve_part2(input: &Vec<String>) -> u32 {
         } else {
             continue;
         }
-        
-        
-        
     }
 
     for key in columns_of_boxes.clone().keys(){
@@ -138,33 +135,19 @@ fn solve_part2(input: &Vec<String>) -> u32 {
 
 
     for instruction in instructions{
-        // println!("Instruction {:?}", instruction);
         let mut boxes:Vec<char> = vec![];
         for i in 0..instruction[0]{
 
             if let Some(item) = columns_of_boxes.get_mut(&instruction[1]).unwrap().pop(){
                 boxes.push(item);
             }
-            // println!("Step {i}");
-            // println!("{:?}", columns_of_boxes);
         }
         boxes.reverse();
         columns_of_boxes.get_mut(&instruction[2]).unwrap().append(&mut boxes);
     }
-    // println!("End");
-    // println!("{:?}", columns_of_boxes);
-
     let solution = String::from("");
-
     for i in 1..=columns_of_boxes.len() as i32{
         println!("{:?}", columns_of_boxes.get_mut(&i).unwrap().last())
     }
-
-
-
-
-
-
-    
     0
 }
