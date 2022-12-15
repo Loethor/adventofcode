@@ -24,15 +24,18 @@ fn main() {
         (2021,  3) => year_2021::day03::run(inputs::read(year, day)),
         (2021,  4) => year_2021::day04::run(inputs::read(year, day)),
         (2021,  5) => year_2021::day05::run(inputs::read(year, day)),
+
         (2021,  6) => year_2021::day06::run(inputs::read(year, day)),
         (2021,  7) => year_2021::day07::run(inputs::read(year, day)),
         (2021,  8) => year_2021::day08::run(inputs::read(year, day)),
         (2021,  9) => year_2021::day09::run(inputs::read(year, day)),
         (2021, 10) => year_2021::day10::run(inputs::read(year, day)),
+
         (2021, 11) => year_2021::day11::run(inputs::read(year, day)),
         (2021, 12) => year_2021::day12::run(inputs::read(year, day)),
         (2021, 13) => year_2021::day13::run(inputs::read(year, day)),
         (2021, 14) => year_2021::day14::run(inputs::read(year, day)),
+
 
         //2022
         (2022,  1) => year_2022::day01::run(inputs::read(year, day)),
@@ -40,6 +43,8 @@ fn main() {
         (2022,  3) => year_2022::day03::run(inputs::read(year, day)),
         (2022,  4) => year_2022::day04::run(inputs::read(year, day)),
         (2022,  5) => year_2022::day05::run(inputs::read(year, day)),
+
+        (2022,  6) => year_2022::day06::run(inputs::read(year, day)),
         (2022,  7) => year_2022::day07::run(inputs::read(year, day)),
 
 

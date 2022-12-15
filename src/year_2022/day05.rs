@@ -3,11 +3,11 @@ use std::{collections::HashMap};
 pub fn run(input: Vec<String>) {
     let part1 = solve_part1(&input);
     println!("part 1: {}", part1);
-    // assert_eq!(part1, 7553);
+    assert_eq!(part1, "CWMTGHBDW");
 
     let part2 = solve_part2(&input);
     println!("part 2: {}", part2);
-    // assert_eq!(part2, 2758);
+    assert_eq!(part2, "SSCGWJCRB");
 }
 
 fn solve_part1(input: &Vec<String>) -> String {
