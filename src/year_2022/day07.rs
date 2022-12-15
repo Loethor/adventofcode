@@ -82,6 +82,7 @@ fn solve_part2(input: &Vec<String>) -> i64 {
 
 #[derive(Debug, Clone)]
 struct File {
+    #[allow(dead_code)]
     name: String,
     size: i64,
 }

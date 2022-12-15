@@ -41,14 +41,13 @@ fn solve_part2(input: &Vec<String>) -> u32 {
 
     let mut first_elf = String::new();
     let mut second_elf = String::new();
-    let mut third_elf = String::new();
     for line in input.iter(){
 
         match counter {
             0 => {first_elf = line.clone(); counter += 1;}
             1 => {second_elf = line.clone(); counter += 1;}
             2 => {
-                    third_elf = line.clone();
+                    let third_elf = line.clone();
                     counter = 0;
                     let letter = find_intersecting_three_strings(&first_elf, &second_elf, &third_elf);
                     list_of_repeated_letters.push(
