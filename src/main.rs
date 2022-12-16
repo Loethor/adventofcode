@@ -47,6 +47,7 @@ fn main() {
         (2022,  6) => year_2022::day06::run(inputs::read(year, day)),
         (2022,  7) => year_2022::day07::run(inputs::read(year, day)),
         (2022,  8) => year_2022::day08::run(inputs::read(year, day)),
+        (2022,  9) => year_2022::day09::run(inputs::read(year, day)),
 
 
 

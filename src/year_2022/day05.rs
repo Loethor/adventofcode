@@ -1,13 +1,24 @@
 use std::{collections::HashMap};
 
+use std::time::{Duration, Instant};
+
 pub fn run(input: Vec<String>) {
+
+    let start = Instant::now();
     let part1 = solve_part1(&input);
     println!("part 1: {}", part1);
     assert_eq!(part1, "CWMTGHBDW");
+    let duration = start.elapsed();
 
+    println!("Time elapsed in part1 is: {:?}", duration);
+
+    let start = Instant::now();
     let part2 = solve_part2(&input);
     println!("part 2: {}", part2);
     assert_eq!(part2, "SSCGWJCRB");
+    let duration = start.elapsed();
+
+    println!("Time elapsed in part2 is: {:?}", duration);
 }
 
 fn solve_part1(input: &Vec<String>) -> String {
