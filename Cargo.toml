@@ -6,3 +6,4 @@ authors = ["Luis Roma Barge"]
 
 [dependencies]
 regex = "1.7.0"
+anyhow = "1.0.66"
