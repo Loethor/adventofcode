@@ -1,5 +1,4 @@
 use std::{collections::HashSet, cmp};
-use regex::Regex;
 
 pub fn run(input: Vec<String>) {
     let part1 = solve_part1(&input);
