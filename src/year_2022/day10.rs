@@ -9,7 +9,7 @@ pub fn run(input: Vec<String>) {
     println!("Time elapsed in part1 is: {:?}", start.elapsed());
 
     let start = Instant::now();
-    let part2 = solve_part2(&input);
+    let _part2 = solve_part2(&input);
     // assert_eq!(part2, ZUPRFECL);
     println!("Time elapsed in part1 is: {:?}", start.elapsed());
 
@@ -65,7 +65,7 @@ fn obtain_input(input: &Vec<String>) -> Vec<(Command, i32)> {
     list_of_commands
 }
 
-fn solve_part2(input: &Vec<String>) {
+fn solve_part2(input: &Vec<String>) ->i32 {
     let list_of_commands = obtain_input(input);
     let mut history:Vec<i32> = Vec::new();
 
@@ -84,7 +84,7 @@ fn solve_part2(input: &Vec<String>) {
         }
     }
     println!("");
-    Ok();
+    0
 }
 
 #[derive(Debug, PartialEq)]

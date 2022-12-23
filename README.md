@@ -58,9 +58,9 @@ My solutions to the [Advent of Code](https://adventofcode.com/) written in Rust 
 | **6**   | **7**   | **8**   | **9**  | **10** |
 | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day06.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day07.rs) | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day08.rs) |        |        |
 | **11**  | **12**  | **13**  | **14** | **15** |
-|         |         |         |        |        |
+| [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day11.rs) |         |         |        |        |
 | **16**  | **17**  | **18**  | **19** | **20** |
-|         |         |         |        |        |
+| [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day16.rs) |         |         |        | [:star2:](https://github.com/Loethor/adventofcode/blob/master/src/year_2022/day20.rs) |
 | **21**  | **22**  | **23**  | **24** | **25** |
 |         |         |         |        |        |
 
