@@ -67,6 +67,8 @@ My solutions to the [Advent of Code](https://adventofcode.com/) written in Rust 
 ## Running
 `cargo run <year> <day>`
 
+## Advent of Python
+You can also check my Rust implementation of 2022 Advent of code [here](https://github.com/Loethor/adventofpython)
 
 ## About Advent of Code
 (from the [website](https://adventofcode.com/2022/about))
